@@ -5,5 +5,5 @@
 安装
 
 ```bash
-npm install krau -g
+npm install @cardniu/calf-cli -g
 ```

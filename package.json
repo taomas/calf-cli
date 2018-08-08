@@ -1,5 +1,5 @@
 {
-  "name": "calf-cli",
+  "name": "@cardniu/calf-cli",
   "version": "0.0.1",
   "description": "a calf-ui template generator",
   "main": "bin/program.js",
