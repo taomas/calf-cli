@@ -1,0 +1,26 @@
+{
+  "name": "calf-cli",
+  "version": "0.0.1",
+  "description": "a calf-ui template generator",
+  "main": "bin/program.js",
+  "bin": {
+    "calf": "program.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "calf-ui",
+    "calf-cli",
+    "generator"
+  ],
+  "author": "liu_tao",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.3.1",
+    "commander": "^2.17.1",
+    "inquirer": "^6.1.0",
+    "lazy-cache": "^2.0.2",
+    "mkdirp": "^0.5.1"
+  }
+}
