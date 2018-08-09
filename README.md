@@ -40,3 +40,8 @@ calf -h // 获取帮助信息
 ##### vue (include calf-ui)
 
 包含了 `calf-ui` 组件库的模板，可直接使用 `calf-ui` 组件库
+
+### changelog
+
+- v0.0.4
+  支持了`calf init <project>`命令直接创建项目，支持选择两种模板`vue (basic template)`和`vue (include calf-ui)`
