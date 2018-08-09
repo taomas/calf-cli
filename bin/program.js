@@ -17,6 +17,15 @@ program
     exe()(argv)
   })
 
+// 部署到远端服务器
+program
+  .command('deploy')
+  .description('deploy to remote server')
+  .action(() => {
+    let exe = utils('../script/task/deploy')
+    exe()()
+  })
+
 program.on('-h, --help', function() {})
 
 program.parse(process.argv)
