@@ -17,12 +17,6 @@ program
     exe()(argv)
   })
 
-program.on('-h, --help', function() {
-  console.log('  Examples:')
-  console.log('')
-  console.log('    $ custom-help --help')
-  console.log('    $ custom-help -h')
-  console.log('')
-})
+program.on('-h, --help', function() {})
 
 program.parse(process.argv)

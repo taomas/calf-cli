@@ -1,6 +1,6 @@
-const colors = require('colors')
 const inquirer = require('inquirer')
 const file = require('../util/file')
+const logger = require('../util/logger')
 const path = require('path')
 
 const rootPath = path.join(__dirname, '../../')
@@ -20,8 +20,12 @@ module.exports = name => {
         message: 'Choose a template:',
         choices: [
           {
-            name: 'vue (include calf-ui)',
+            name: 'vue (basic template)',
             value: 'vue-template'
+          },
+          {
+            name: 'vue (include calf-ui)',
+            value: 'vue-template-calf-ui'
           }
         ]
       }
@@ -31,5 +35,6 @@ module.exports = name => {
       const templatePath = path.join(rootPath, 'template/' + answers.template)
       file.createProjectFolder(projectPath)
       file.copyFolder(templatePath, projectPath)
+      logger.logCreateSuccess(answers)
     })
 }

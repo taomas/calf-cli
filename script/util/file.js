@@ -16,10 +16,8 @@ function copyFolder(templatePath, projectPath) {
       files.forEach(function(filename) {
         var srcDir = path.join(templatePath, filename)
         var targetDir = path.join(projectPath, filename)
-        fs.stat(srcDir, function(eror, stats) {
-          if (eror) {
-            console.warn('获取文件stats失败')
-          } else {
+        fs.stat(srcDir, function(error, stats) {
+          if (!error) {
             var isFile = stats.isFile()
             var isDir = stats.isDirectory()
             if (isFile) {
