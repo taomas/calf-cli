@@ -1,3 +1,11 @@
+/*
+ * @Author: liu_tao
+ * @Date: 2018-08-09 14:28:48
+ * @LastEditors: liu_tao
+ * @LastEditTime: 2018-08-09 14:28:48
+ * @Description: file util
+ */
+
 const mkdirp = require('mkdirp')
 const path = require('path')
 const fs = require('fs')

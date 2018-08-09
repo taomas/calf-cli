@@ -1,3 +1,11 @@
+/*
+ * @Author: liu_tao
+ * @Date: 2018-08-09 14:28:35
+ * @LastEditors: liu_tao
+ * @LastEditTime: 2018-08-09 14:28:35
+ * @Description: init task
+ */
+
 const inquirer = require('inquirer')
 const file = require('../util/file')
 const logger = require('../util/logger')
