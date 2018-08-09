@@ -1,60 +1,35 @@
 const colors = require('colors')
 const inquirer = require('inquirer')
-const DecompressZip = require('decompress-zip')
-const mkdirp = require('mkdirp')
+const file = require('../util/file')
 const path = require('path')
-const fs = require('fs')
 
 const rootPath = path.join(__dirname, '../../')
 
-function createProjectFolder(projectRoot) {
-  if (fs.existsSync(projectRoot)) {
-    let stats = fs.statSync(projectRoot)
-    if (stats.isDirectory()) {
-      throw new Error(`${projectRoot} is already exists`)
-    }
-  }
-  mkdirp.sync(projectRoot, {})
-}
-
-function makeFile(tpl, projectRoot) {
-  let zipFile = path.join(rootPath, 'template/' + tpl + '.zip')
-  let unzipper = new DecompressZip(zipFile)
-  unzipper.on('error', err => {
-    throw new Error(err)
-  })
-  unzipper.on('extract', () => {
-    console.log(colors.bgGreen(`[task ${leftPad('create', 12)}]`), 'done')
-  })
-  unzipper.extract({
-    path: projectRoot
-  })
-}
-
-function init() {
+module.exports = name => {
   inquirer
     .prompt([
       {
         type: 'input',
-        name: 'pkg',
-        message: 'Name the project:'
+        name: 'project',
+        message: 'Name the project:',
+        default: name
       },
       {
         type: 'list',
-        name: 'tpl',
+        name: 'template',
         message: 'Choose a template:',
         choices: [
           {
             name: 'vue (include calf-ui)',
-            value: 'vue(calf-ui)'
+            value: 'vue-template'
           }
         ]
       }
     ])
-    .then(res => {
-      const projectRoot = path.join(process.cwd(), res.pkg)
-      console.log(projectRoot)
+    .then(answers => {
+      const projectPath = path.join(process.cwd(), answers.project)
+      const templatePath = path.join(rootPath, 'template/' + answers.template)
+      file.createProjectFolder(projectPath)
+      file.copyFolder(templatePath, projectPath)
     })
 }
-
-export default init
