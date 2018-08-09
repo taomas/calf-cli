@@ -26,9 +26,30 @@ cnpm run dev
 ```bash
 calf init <project> // 创建项目
 
+calf deploy // 部署dist目录到远端服务器，配置信息详见calf.json
+
 calf -v // 获取当前版本信息
 
 calf -h // 获取帮助信息
+```
+
+### calf.json
+
+```json
+{
+  "ftp": {
+    // 主机地址
+    "host": "",
+    // 主机用户名
+    "username": "",
+    // 主机密码
+    "password": "",
+    // 部署路径
+    "path": ""
+  },
+  // 部署文件夹
+  "distFolder": ""
+}
 ```
 
 ### 模板
@@ -45,3 +66,5 @@ calf -h // 获取帮助信息
 
 - v0.0.4
   支持了`calf init <project>`命令直接创建项目，支持选择两种模板`vue (basic template)`和`vue (include calf-ui)`
+- v0.0.5
+  支持了`calf deploy`命令，直接部署到远端服务器，配置信息详见`calf.json`
