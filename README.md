@@ -68,3 +68,5 @@ calf -h // 获取帮助信息
   支持了`calf init <project>`命令直接创建项目，支持选择两种模板`vue (basic template)`和`vue (include calf-ui)`
 - v0.0.5
   支持了`calf deploy`命令，直接部署到远端服务器，配置信息详见`calf.json`
+- v0.0.6
+  支持了`react (basic template)`模板
