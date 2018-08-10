@@ -34,6 +34,10 @@ module.exports = name => {
           {
             name: 'vue (include calf-ui)',
             value: 'vue-template-calf-ui'
+          },
+          {
+            name: 'react (basic template)',
+            value: 'react-template'
           }
         ]
       }

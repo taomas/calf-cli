@@ -1,3 +1,11 @@
+/*
+ * @Author: liutao
+ * @Date: 2018-08-10 08:46:55
+ * @LastEditors: liutao
+ * @LastEditTime: 2018-08-10 08:46:55
+ * @Description: deploy task
+ */
+
 const ora = require('ora')
 const client = require('scp2')
 const path = require('path')

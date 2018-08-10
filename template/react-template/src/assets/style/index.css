@@ -1,0 +1,8 @@
+@import './normalize.css';
+@import './base.css';
+
+.primary-layout {
+  width: 100px;
+  height: auto;
+  margin: 0 auto;
+}
