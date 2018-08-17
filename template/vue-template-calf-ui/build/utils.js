@@ -3,16 +3,19 @@ const path = require('path')
 const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
+const calfConfig = require('../calf.json')
+const projectRoot = process.cwd()
 
-exports.assetsPath = function (_path) {
-  const assetsSubDirectory = process.env.NODE_ENV === 'production'
-    ? config.build.assetsSubDirectory
-    : config.dev.assetsSubDirectory
+exports.assetsPath = function(_path) {
+  const assetsSubDirectory =
+    process.env.NODE_ENV === 'production'
+      ? config.build.assetsSubDirectory
+      : config.dev.assetsSubDirectory
 
   return path.posix.join(assetsSubDirectory, _path)
 }
 
-exports.cssLoaders = function (options) {
+exports.cssLoaders = function(options) {
   options = options || {}
 
   const cssLoader = {
@@ -30,8 +33,10 @@ exports.cssLoaders = function (options) {
   }
 
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
-    const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
+  function generateLoaders(loader, loaderOptions) {
+    const loaders = options.usePostCSS
+      ? [cssLoader, postcssLoader]
+      : [cssLoader]
 
     if (loader) {
       loaders.push({
@@ -67,7 +72,7 @@ exports.cssLoaders = function (options) {
 }
 
 // Generate loaders for standalone style files (outside of .vue)
-exports.styleLoaders = function (options) {
+exports.styleLoaders = function(options) {
   const output = []
   const loaders = exports.cssLoaders(options)
 
@@ -98,4 +103,49 @@ exports.createNotifierCallback = () => {
       icon: path.join(__dirname, 'logo.png')
     })
   }
+}
+
+exports.getConfig = () => {
+  return calfConfig
+}
+
+exports.mergePath = alias => {
+  let res = {}
+  for (const key in alias) {
+    let value = alias[key]
+    if (value.startsWith('~')) {
+      res[key] = value.replace(/~/g, '')
+    } else {
+      res[key] = path.resolve(projectRoot, value)
+    }
+  }
+  return res
+}
+
+const logProxyApis = proxy => {
+  const apisMessage = proxy.apis
+    .map(api => {
+      return `${proxy.root}${api}`
+    })
+    .join(`\n      `)
+  console.log(`proxy is listening on: \n      ${apisMessage}`)
+}
+
+exports.getProxyConfig = proxy => {
+  let proxyConfig = {}
+  if (proxy.open) {
+    logProxyApis(proxy)
+    proxy.apis.forEach(function(item) {
+      let pathRewriteKey = '^/' + item
+      let pathRewriteValue = '/' + item
+      proxyConfig['/' + item] = {
+        target: proxy.root,
+        changeOrigin: true,
+        pathRewrite: {
+          [pathRewriteKey]: pathRewriteValue
+        }
+      }
+    })
+  }
+  return proxyConfig
 }

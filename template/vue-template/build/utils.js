@@ -110,11 +110,16 @@ exports.getConfig = () => {
 }
 
 exports.mergePath = alias => {
+  let res = {}
   for (const key in alias) {
     let value = alias[key]
-    alias[key] = path.resolve(projectRoot, value)
+    if (value.startsWith('~')) {
+      res[key] = value.replace(/~/g, '')
+    } else {
+      res[key] = path.resolve(projectRoot, value)
+    }
   }
-  return alias
+  return res
 }
 
 const logProxyApis = proxy => {

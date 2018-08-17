@@ -1,9 +1,18 @@
 {
   "ftp": {
-    "host": "170.0.0.1",
-    "username": "test",
-    "password": "test",
-    "path": "/usr/local/www/test"
+    "host": "",
+    "username": "",
+    "password": "",
+    "path": ""
   },
-  "distFolder": "dist"
+  "ftpFolder": "dist",
+  "alias": {
+    "@": "src",
+    "calf-ui": "@cardniu/calf-ui/lib"
+  },
+  "proxy": {
+    "open": false,
+    "root": "http://www.baidu.com",
+    "apis": ["/login", "/login-out"]
+  }
 }

@@ -48,7 +48,20 @@ calf -h // 获取帮助信息
     "path": ""
   },
   // 部署文件夹
-  "distFolder": ""
+  "ftpFolder": "",
+  // webpack别名
+  "alias": {
+    "@": "src"
+  },
+  // proxy代理
+  "proxy": {
+    // 是否开启proxy代理
+    "open": false,
+    // 代理api接口地址
+    "root": "http://www.baidu.com",
+    // 代理api接口列表
+    "apis": ["/login", "/login-out"]
+  }
 }
 ```
 
@@ -74,3 +87,5 @@ calf -h // 获取帮助信息
   支持了`calf deploy`命令，直接部署到远端服务器，配置信息详见`calf.json`
 - v0.0.6
   支持了`react (basic template)`模板
+- v0.0.7
+  `vue`模板的`calf.json`配置，支持配置`ftp/alias/proxy`等信息
