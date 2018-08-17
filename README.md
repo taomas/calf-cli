@@ -51,7 +51,10 @@ calf -h // 获取帮助信息
   "ftpFolder": "",
   // webpack别名
   "alias": {
-    "@": "src"
+    // 相对于项目根目录的绝对路径
+    "@": "src",
+    // 以~开头，直接显示不做转换，用于node_module相关的路径映射
+    "calf-ui": "~@cardniu/calf-ui/lib"
   },
   // proxy代理
   "proxy": {
@@ -88,4 +91,4 @@ calf -h // 获取帮助信息
 - v0.0.6
   支持了`react (basic template)`模板
 - v0.0.7
-  `vue`模板的`calf.json`配置，支持配置`ftp/alias/proxy`等信息
+  新增`vue`模板的`calf.json`中相关配置功能，支持配置`ftp/alias/proxy`等信息
