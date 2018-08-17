@@ -15,8 +15,6 @@ const PORT = process.env.PORT && Number(process.env.PORT)
 const calfConfig = utils.getConfig()
 const proxyConfig = utils.getProxyConfig(calfConfig.proxy)
 
-console.log(proxyConfig)
-
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
