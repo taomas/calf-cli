@@ -24,7 +24,7 @@ const defaultConfig = {
     password: '',
     path: ''
   },
-  distFolder: ''
+  ftpFolder: ''
 }
 
 function upload(targetPath, ftp) {
@@ -53,22 +53,22 @@ function validConfig(config, targetPath) {
   const validFtp = ['host', 'username', 'password', 'path'].every(
     key => ftp[key] && ftp[key].length > 0
   )
-  let validDistFolder = config.distFolder && config.distFolder.length > 0
+  let validFtpFolder = config.ftpFolder && config.ftpFolder.length > 0
   const exists = fs.existsSync(targetPath)
   if (!validFtp) {
     console.log(colors.red('Error: invalid ftp config'))
-  } else if (!validDistFolder) {
+  } else if (!validFtpFolder) {
     console.log(colors.red('Error: invalid dist folder'))
   } else if (!exists) {
     console.log(colors.red(`Error: ${targetPath} folder not exist`))
   } else {
-    return validFtp && validDistFolder
+    return validFtp && validFtpFolder
   }
 }
 
 function deploy() {
   const config = { ...defaultConfig, ...calfConfig }
-  const targetPath = path.resolve(projectRoot, config.distFolder)
+  const targetPath = path.resolve(projectRoot, config.ftpFolder)
   const isValideConfig = validConfig(config, targetPath)
   if (isValideConfig) {
     upload(targetPath, config.ftp)

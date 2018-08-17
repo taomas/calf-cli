@@ -1,12 +1,17 @@
 {
   "ftp": {
-    "host": "170.0.0.1",
-    "username": "test",
-    "password": "test",
-    "path": "/usr/local/www/test"
+    "host": "",
+    "username": "",
+    "password": "",
+    "path": ""
   },
-  "distFolder": "dist",
+  "ftpFolder": "dist",
   "alias": {
     "@": "src"
+  },
+  "proxy": {
+    "open": false,
+    "root": "http://www.baidu.com",
+    "apis": ["/login", "/login-out"]
   }
 }

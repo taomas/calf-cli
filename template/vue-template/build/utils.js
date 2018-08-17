@@ -116,3 +116,23 @@ exports.mergePath = alias => {
   }
   return alias
 }
+
+exports.getProxyConfig = proxy => {
+  const apis = proxy.apis
+  const root = proxy.root
+  let proxyConfig = {}
+  if (proxy.open) {
+    proxy.apis.forEach(function(item) {
+      let pathRewriteKey = '^/' + item
+      let pathRewriteValue = '/' + item
+      proxyConfig['/' + item] = {
+        target: proxy.root,
+        changeOrigin: true,
+        pathRewrite: {
+          [pathRewriteKey]: pathRewriteValue
+        }
+      }
+    })
+  }
+  return proxyConfig
+}
