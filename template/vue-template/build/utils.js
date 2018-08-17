@@ -117,11 +117,19 @@ exports.mergePath = alias => {
   return alias
 }
 
+const logProxyApis = proxy => {
+  const apisMessage = proxy.apis
+    .map(api => {
+      return `${proxy.root}${api}`
+    })
+    .join(`\n      `)
+  console.log(`proxy is listening on: \n      ${apisMessage}`)
+}
+
 exports.getProxyConfig = proxy => {
-  const apis = proxy.apis
-  const root = proxy.root
   let proxyConfig = {}
   if (proxy.open) {
+    logProxyApis(proxy)
     proxy.apis.forEach(function(item) {
       let pathRewriteKey = '^/' + item
       let pathRewriteValue = '/' + item
