@@ -62,6 +62,10 @@ calf -h // 获取帮助信息
 
 包含了 `calf-ui` 组件库的模板，可直接使用 `calf-ui` 组件库
 
+##### react (basic template)
+
+一个 `react` 的基础模板，和 `create-react-app` 生成的模板一样
+
 ### changelog
 
 - v0.0.4

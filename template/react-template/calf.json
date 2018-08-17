@@ -1,9 +1,9 @@
 {
   "ftp": {
-    "host": "172.22.145.137",
-    "username": "testknpub",
-    "password": "4DYCr34fVhzM",
-    "path": "/usr/local/www/demo"
+    "host": "170.0.0.1",
+    "username": "test",
+    "password": "test",
+    "path": "/usr/local/www/test"
   },
   "distFolder": "dist"
 }
