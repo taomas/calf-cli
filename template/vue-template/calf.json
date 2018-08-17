@@ -5,5 +5,8 @@
     "password": "test",
     "path": "/usr/local/www/test"
   },
-  "distFolder": "dist"
+  "distFolder": "dist",
+  "alias": {
+    "@": "src"
+  }
 }
