@@ -1,6 +1,6 @@
 {
   "name": "@cardniu/calf-cli",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "a calf-ui template generator",
   "main": "./bin/program.js",
   "bin": {

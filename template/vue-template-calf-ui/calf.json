@@ -14,5 +14,28 @@
     "open": false,
     "root": "http://www.baidu.com",
     "apis": ["/login", "/login-out"]
+  },
+  "devServer": {
+    "host": "localhost",
+    "port": 8080,
+    "autoOpenBrowser": true,
+    "errorOverlay": true,
+    "poll": false
+  },
+  "dev": {
+    "assetsSubDirectory": "static",
+    "assetsPublicPath": "/",
+    "cssSourceMap": true,
+    "devtool": "#source-map",
+    "useEslint": true,
+    "showEslintErrorsInOverlay": false
+  },
+  "build": {
+    "assetsSubDirectory": "static",
+    "assetsPublicPath": "http://www.baidu.com/",
+    "productionSourceMap": false,
+    "devtool": "#source-map",
+    "bundleAnalyzerReport": true,
+    "bundleAnalyzerPort": 8090
   }
 }

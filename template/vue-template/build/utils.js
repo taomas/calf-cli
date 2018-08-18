@@ -1,9 +1,8 @@
 'use strict'
 const path = require('path')
-const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
-const calfConfig = require('../calf.json')
+const config = require('../calf.json')
 const projectRoot = process.cwd()
 
 exports.assetsPath = function(_path) {
@@ -106,10 +105,10 @@ exports.createNotifierCallback = () => {
 }
 
 exports.getConfig = () => {
-  return calfConfig
+  return config
 }
 
-exports.mergePath = alias => {
+exports.createAlias = alias => {
   let res = {}
   for (const key in alias) {
     let value = alias[key]
@@ -148,4 +147,8 @@ exports.getProxyConfig = proxy => {
     })
   }
   return proxyConfig
+}
+
+exports.resolve = dir => {
+  return path.resolve(__dirname, '..', dir)
 }

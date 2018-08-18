@@ -1,9 +1,8 @@
 'use strict'
 const path = require('path')
 const utils = require('./utils')
-const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-const calfConfig = utils.getConfig()
+const config = utils.getConfig()
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -26,7 +25,7 @@ module.exports = {
     app: './src/main.js'
   },
   output: {
-    path: config.build.assetsRoot,
+    path: path.resolve(__dirname, '../dist'),
     filename: '[name].js',
     publicPath:
       process.env.NODE_ENV === 'production'
@@ -37,7 +36,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       vue$: 'vue/dist/vue.esm.js',
-      ...utils.mergePath(calfConfig.alias)
+      ...utils.createAlias(config.alias)
     }
   },
   module: {
