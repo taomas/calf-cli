@@ -8,7 +8,7 @@
   "ftpFolder": "dist",
   "alias": {
     "@": "src",
-    "calf-ui": "~@cardniu/calf-ui/lib"
+    "calf-ui": "calf-ui/lib"
   },
   "proxy": {
     "open": false,

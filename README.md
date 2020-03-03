@@ -1,12 +1,12 @@
 # calf-cli
 
-> 卡牛内部脚手架工具
+> 一个用来生成项目模板的脚手架工具
 
 ### 用法
 
 ```bash
 // 全局安装calf-cli
-cnpm install @cardniu/calf-cli -g
+cnpm install calf-cli -g
 
 // 创建项目
 calf init my-project
@@ -54,7 +54,7 @@ calf -h // 获取帮助信息
     // 相对于项目根目录的绝对路径
     "@": "src",
     // 以~开头，直接显示不做转换，用于node_module相关的路径映射
-    "calf-ui": "~@cardniu/calf-ui/lib"
+    "calf-ui": "~calf-ui/lib"
   },
   // proxy代理
   "proxy": {
