@@ -1,6 +1,6 @@
 {
   "name": "@cardniu/calf-cli",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "a calf-ui template generator",
   "main": "./bin/program.js",
   "bin": {
@@ -24,7 +24,5 @@
     "mkdirp": "^0.5.1",
     "ora": "^3.0.0",
     "scp2": "^0.5.0"
-  },
-  "_from": "@cardniu/calf-cli@0.0.3",
-  "_resolved": "http://172.22.145.137:7001/@cardniu/calf-cli/download/@cardniu/calf-cli-0.0.3.tgz"
+  }
 }
