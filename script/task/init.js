@@ -28,12 +28,12 @@ module.exports = name => {
         message: 'Choose a template:',
         choices: [
           {
-            name: 'vue (basic template)',
-            value: 'vue-template'
-          },
-          {
             name: 'vue (include calf-ui)',
             value: 'vue-template-calf-ui'
+          },
+          {
+            name: 'vue (basic template)',
+            value: 'vue-template'
           },
           {
             name: 'react (basic template)',

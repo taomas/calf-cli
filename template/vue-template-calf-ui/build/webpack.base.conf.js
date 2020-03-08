@@ -36,7 +36,8 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       vue$: 'vue/dist/vue.esm.js',
-      ...utils.createAlias(config.alias)
+      "calf-ui": "calf-ui/lib",
+      "@": resolve("src")
     }
   },
   module: {

@@ -9,7 +9,7 @@ const path = require('path')
 const chalk = require('chalk')
 const webpack = require('webpack')
 const webpackConfig = require('./webpack.prod.conf')
-const config = require('../calf.json')
+const config = require('../calf.config.json')
 
 const spinner = ora('building for production...')
 const assetsRoot = path.resolve(__dirname, '../dist')

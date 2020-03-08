@@ -6,10 +6,7 @@
     "path": ""
   },
   "ftpFolder": "dist",
-  "alias": {
-    "@": "src",
-    "calf-ui": "calf-ui/lib"
-  },
+  "alias": {},
   "proxy": {
     "open": false,
     "root": "http://www.baidu.com",

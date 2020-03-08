@@ -2,7 +2,7 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
-const config = require('../calf.json')
+const config = require('../calf.config.json')
 const projectRoot = process.cwd()
 
 exports.assetsPath = function(_path) {
