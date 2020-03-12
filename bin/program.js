@@ -9,7 +9,7 @@ program.version(pkg.version, '-v, --version')
 // 新建项目
 // 项目命名，生成模板文件
 program
-  .command('init')
+  .command('init', 'init project')
   .description('create project')
   .action(argv => {
     let exe = utils('../script/task/init')
@@ -19,7 +19,7 @@ program
 
 // 部署到远端服务器
 program
-  .command('deploy')
+  .command('deploy', 'deploy to remote server')
   .description('deploy to remote server')
   .action(() => {
     let exe = utils('../script/task/deploy')
